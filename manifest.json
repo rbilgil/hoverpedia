@@ -19,8 +19,8 @@
     "content_scripts": [
         {
             "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*"],
-            "css": ["hoverpedia.css"],
-            "js": ["jquery-2.1.0.min.js", "hoverIntent.js", "hoverpedia.js"]
+            "css": ["css/hoverpedia.css"],
+            "js": ["lib/jquery-2.1.0.min.js", "lib/hoverIntent.js", "src/hoverpedia.js"]
         }
     ]
 }
