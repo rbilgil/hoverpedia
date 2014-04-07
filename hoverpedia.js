@@ -1,5 +1,8 @@
 var hoverBox = {
-    html: '<div id="hoverpediabox" class="arrow_box">Loading...</div>',
+    html: null,
+    setHTML: function(html) {
+        this.html = '<div id="hoverpediabox" class="arrow_box">' + html + '</div>';
+    },
     element: null,
     setPosition: function(anchor) {
 
@@ -36,7 +39,9 @@ function fetchWiki(pageTitle, anchor) {
             var lastFewChars = trimmedSentence.slice(trimmedSentence.length - 10, trimmedSentence.length);
             var sliceLimit = firstParagraph.html.indexOf(lastFewChars);
             var slicedHTML = firstParagraph.html.slice(0, sliceLimit);
-            hoverBox.element.html(slicedHTML + "...");
+            hoverBox.setHTML(slicedHTML + "...");
+            anchor.after(hoverBox.html);
+            hoverBox.element = $('#hoverpediabox');
             hoverBox.setPosition(anchor);
         }
     );
@@ -46,9 +51,6 @@ var mouseOverWikiLink = function($this) {
     var href = $this.attr('href');
 
     if (href.match(/wiki/) !== null) {
-        $this.after(hoverBox.html);
-        hoverBox.element = $('#hoverpediabox');
-        hoverBox.setPosition($this);
         fetchWiki(href, $this);
 
     }

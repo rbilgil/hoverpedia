@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aadeeb72-5e4c-4c71-8738-898aee808f72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoverpedia.css" afterPath="$PROJECT_DIR$/hoverpedia.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoverpedia.js" afterPath="$PROJECT_DIR$/hoverpedia.js" />
     </list>
     <ignored path="Hoverpedia.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hoverpedia.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="hoverpedia.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hoverpedia.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="36" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1720">
+            <state line="44" column="41" selection-start="1447" selection-end="1447" vertical-scroll-proportion="0.7111111" vertical-offset="240" max-vertical-offset="1760">
               <folding />
             </state>
           </provider>
@@ -74,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hoverpedia.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="hoverpedia.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hoverpedia.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="65" selection-start="402" selection-end="402" vertical-scroll-proportion="0.26666668" vertical-offset="0" max-vertical-offset="960">
+            <state line="12" column="65" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
               <folding />
             </state>
           </provider>
@@ -100,8 +100,8 @@
         <option value="$PROJECT_DIR$/hoverIntent.js" />
         <option value="$PROJECT_DIR$/wiki2html.js" />
         <option value="$PROJECT_DIR$/manifest.json" />
-        <option value="$PROJECT_DIR$/hoverpedia.js" />
         <option value="$PROJECT_DIR$/hoverpedia.css" />
+        <option value="$PROJECT_DIR$/hoverpedia.js" />
       </list>
     </option>
   </component>
@@ -266,16 +266,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hoverpedia.js">
+    <entry file="file://$PROJECT_DIR$/hoverpedia.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="36" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1720">
+        <state line="12" column="65" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hoverpedia.css">
+    <entry file="file://$PROJECT_DIR$/hoverpedia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="65" selection-start="402" selection-end="402" vertical-scroll-proportion="0.26666668" vertical-offset="0" max-vertical-offset="960">
+        <state line="44" column="41" selection-start="1447" selection-end="1447" vertical-scroll-proportion="0.7111111" vertical-offset="240" max-vertical-offset="1760">
           <folding />
         </state>
       </provider>
