@@ -1,28 +1,33 @@
 var hoverBox = {
     html: null,
     setHTML: function(html) {
-        this.html = '<div id="hoverpediabox" class="arrow_box">' + html + '</div>';
+        this.html =
+            '<div class="hoverpediabox arrow_box">' +
+                '<div class="noverflow">' +
+                    '<p>' +
+                        html +
+                    '</p>' +
+                '</div>' +
+            '</div>';
     },
     element: null,
-    setPosition: function(anchor) {
+    setPosition: function(x, y) {
 
-        var offset = anchor.offset();
-        var aWidth = anchor.width();
         var boxWidth = hoverBox.element.width();
         var boxHeight = hoverBox.element.height();
 
         this.element.css(
             {
-                top: offset.top - boxHeight - 180,
-                left: offset.left - boxWidth + aWidth/2
+                top: y - boxHeight - 45,
+                left: x - boxWidth / 2
             }
         );
     }
 };
 
-function fetchWiki(pageTitle, anchor) {
+function fetchWiki(pageTitle, event) {
 
-    var charLimit = 250;
+    var charLimit = 400;
 
     $.get(pageTitle,
         function(data) {
@@ -40,9 +45,9 @@ function fetchWiki(pageTitle, anchor) {
             var sliceLimit = firstParagraph.html.indexOf(lastFewChars);
             var slicedHTML = firstParagraph.html.slice(0, sliceLimit);
             hoverBox.setHTML(slicedHTML + "...");
-            anchor.after(hoverBox.html);
-            hoverBox.element = $('#hoverpediabox');
-            hoverBox.setPosition(anchor);
+            $('body').after(hoverBox.html);
+            hoverBox.element = $('.hoverpediabox');
+            hoverBox.setPosition(event.pageX, event.pageY);
         }
     );
 }
@@ -79,4 +84,10 @@ $( function() {
         }
     );
 
+});
+
+$("body").mousemove(function(e) {
+    if (hoverBox.element !== null) {
+        hoverBox.setPosition(e.pageX, e.pageY);
+    }
 });

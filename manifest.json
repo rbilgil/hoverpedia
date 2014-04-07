@@ -20,7 +20,7 @@
         {
             "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*"],
             "css": ["hoverpedia.css"],
-            "js": ["jquery-2.1.0.min.js", "hoverIntent.js", "wiki2html.js", "hoverpedia.js"]
+            "js": ["jquery-2.1.0.min.js", "hoverIntent.js", "hoverpedia.js"]
         }
     ]
 }
