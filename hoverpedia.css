@@ -1,0 +1,40 @@
+#hoverpediabox {
+    position:absolute;
+    z-index: 99999;
+    color: #000;
+    font-size:12px;
+    padding: 8px;
+    border-radius: 5px;
+    min-width: 100px;
+    min-height: 50px;
+    max-width: 400px;
+}
+
+.arrow_box {
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
+.arrow_box:after, .arrow_box:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(213, 26, 26, 0);
+    border-top-color: #fff;
+    border-width: 15px;
+    margin-left: -15px;
+}
+.arrow_box:before {
+    border-color: rgba(245, 238, 238, 0);
+    border-top-color: #aaa;
+    border-width: 16px;
+    margin-left: -16px;
+}

@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+
+    "name": "Hoverpedia",
+    "description": "Hover over links in a Wikipedia article to see summary of the page it links to",
+    "version": "1.0",
+
+    "permissions": [
+        "tabs",
+        "http://*.wikipedia.org/*",
+        "https://*.wikipedia.org/*"
+    ],
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Hoverpedia"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://*.wikipedia.org/*", "https://*.wikipedia.org/*"],
+            "css": ["hoverpedia.css"],
+            "js": ["jquery-2.1.0.min.js", "hoverIntent.js", "wiki2html.js", "hoverpedia.js"]
+        }
+    ]
+}
