@@ -15,7 +15,6 @@ With this Chrome extension, hover over any Wikipedia link to read the first few 
     - Updated to have logo in extension settings
 
 ###License
-
 Do whatever you want, use it however you like!
 
 
