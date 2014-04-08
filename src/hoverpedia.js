@@ -103,10 +103,9 @@ function fetchWiki(pageTitle, event) {
     $.get(pageTitle,
         function(data) {
             var result = getTitleAndParagraph(data, charLimit);
-
-            hoverBox.setTitle(result.title);
             hoverBox.setHTML(result.paragraph + "...");
             hoverBox.setPosition(event.pageX, event.pageY);
+            hoveringOverLink = true;
         }
     );
 }
@@ -114,8 +113,7 @@ function fetchWiki(pageTitle, event) {
 var mouseOverWikiLink = function($this) {
     var href = $this.attr('href');
 
-    if (href.match(/\/wiki\//) !== null) {
-        hoveringOverLink = true;
+    if (href.match(/(\/wiki\/|%2Fwiki)/) !== null) {
         fetchWiki(href, $this);
     }
 
