@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aadeeb72-5e4c-4c71-8738-898aee808f72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hoverpedia.js" afterPath="$PROJECT_DIR$/src/hoverpedia.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -40,7 +38,7 @@
       <file leaf-file-name="hoverpedia.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="0.4878049" vertical-offset="0" max-vertical-offset="3260">
+            <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="4.5676274" vertical-offset="0" max-vertical-offset="4340">
               <folding />
             </state>
           </provider>
@@ -49,7 +47,7 @@
       <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="100" selection-start="233" selection-end="233" vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="580">
+            <state line="16" column="10" selection-start="601" selection-end="601" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="560">
               <folding />
             </state>
           </provider>
@@ -84,8 +82,8 @@
         <option value="$PROJECT_DIR$/hoverpedia.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/manifest.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/css/hoverpedia.css" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/hoverpedia.js" />
       </list>
     </option>
@@ -287,13 +285,6 @@
         <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="100" selection-start="233" selection-end="233" vertical-scroll-proportion="-3.2" vertical-offset="0" max-vertical-offset="580">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="-15.862069" vertical-offset="0" max-vertical-offset="720">
@@ -308,9 +299,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="601" selection-end="601" vertical-scroll-proportion="-12.8" vertical-offset="0" max-vertical-offset="560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="606" selection-end="606" vertical-scroll-proportion="0.4878049" vertical-offset="0" max-vertical-offset="3260">
+        <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="4.5676274" vertical-offset="0" max-vertical-offset="4340">
           <folding />
         </state>
       </provider>

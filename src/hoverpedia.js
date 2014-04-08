@@ -21,33 +21,56 @@ var hoverBox = {
 
     html: this.startHTML + this.endHTML,
 
+    /**
+     * Sets the title of the popup
+     * Currently unused
+     * TODO: Make this an option
+     * @param title
+     */
     setTitle: function(title) {
         var h2 = $(this.classes.box + ' > ' + this.classes.noOverflowDiv + ' > h2');
         h2.text(title);
         h2.show();
     },
 
+    /**
+     * Sets the inner HTML of the box
+     * @param html
+     */
     setHTML: function(html) {
         $(this.classes.box + ' > ' + this.classes.noOverflowDiv + ' > p').html(html);
     },
 
-    setLoading: function() {
+    /**
+     * Displays the loading gif
+     * Currently unusued
+     */
+    showLoading: function() {
         var img = $(this.classes.loadingImg);
         var src = chrome.extension.getURL('/loading.gif');
         img.attr('src', src);
         img.show();
     },
 
-    unsetLoading: function() {
+    /**
+     * Hides the loading gif
+     */
+    hideLoading: function() {
         $(this.classes.loadingImg).hide();
     },
 
+    /**
+     * Injects the HTML necessary to display the popup box
+     */
     appendBoxToBody: function () {
         if (this.element === null) {
             $('body').append(this.startHTML + this.endHTML);
         }
     },
 
+    /**
+     * Injects the HTML and Creates the jquery element for the popup box
+     */
     initialiseHoverBoxElement: function() {
         this.appendBoxToBody();
         this.element = $(this.classes.box);
@@ -55,6 +78,11 @@ var hoverBox = {
 
     element: null,
 
+    /**
+     * Sets the x,y position of the popup box
+     * @param x
+     * @param y
+     */
     setPosition: function(x, y) {
 
         var boxWidth = hoverBox.element.outerWidth();
@@ -75,6 +103,12 @@ var hoverBox = {
     }
 };
 
+/**
+ * Returns the Title and the first paragraph, shortened to fit within charLimit
+ * @param data Data in form of HTML
+ * @param charLimit The character limit to display in the popup box
+ * @returns {{title: string, paragraph: string }}
+ */
 function getTitleAndParagraph(data, charLimit) {
 
     var el = $('<div></div>'); //create dummy element
@@ -103,6 +137,11 @@ function getTitleAndParagraph(data, charLimit) {
     };
 }
 
+/**
+ * Creates an AJAX request to Wikipedia to fetch requested page title
+ * @param pageTitle
+ * @param event The hover event, required to set box position to mouse position
+ */
 function fetchWiki(pageTitle, event) {
 
     var charLimit = 400;
@@ -110,12 +149,15 @@ function fetchWiki(pageTitle, event) {
         function(data) {
             var result = getTitleAndParagraph(data, charLimit);
             hoverBox.setHTML(result.paragraph + "...");
-            hoverBox.setPosition(event.pageX, event.pageY);
             hoveringOverLink = true;
         }
     );
 }
 
+/**
+ * Controls mousing over a wiki link
+ * @param $this
+ */
 var mouseOverWikiLink = function($this) {
     var href = $this.attr('href');
 
@@ -125,15 +167,25 @@ var mouseOverWikiLink = function($this) {
 
 };
 
+/**
+ * Controls mousing off a wiki link
+ */
 var mouseLeaveWikiLink = function() {
     hoveringOverLink = false;
 };
 
+/**
+ * When document is ready
+ */
 $( function() {
     var a = $('a');
 
     hoverBox.initialiseHoverBoxElement();
 
+    /**
+     * hoverIntent is a delayed version of hover, provided by plugin
+     * It waits for the mouse to be nearly stationary before activating
+     */
     a.hoverIntent(
         function() {
             mouseOverWikiLink($(this));
@@ -144,6 +196,9 @@ $( function() {
     );
 
 
+    /**
+     * Sets the popup box to the mouse cursor position every time mouse is moved
+     */
     $("body").mousemove(function(e) {
         hoverBox.setPosition(e.pageX, e.pageY);
 
@@ -153,6 +208,5 @@ $( function() {
             hoverBox.element.hide();
         }
     });
-
 
 });
