@@ -5,16 +5,17 @@
     font-size:12px;
     padding: 8px;
     border-radius: 5px;
+    -webkit-box-shadow: 0px -5px 30px 0px rgba(50, 50, 50, 0.32);
+    -moz-box-shadow:    0px -5px 30px 0px rgba(50, 50, 50, 0.32);
+    box-shadow:         0px -5px 30px 0px rgba(50, 50, 50, 0.32);
+    display:none;
+}
+
+.noverflow {
     min-width: 100px;
     min-height: 50px;
     max-height: 150px;
     max-width: 500px;
-    -webkit-box-shadow: 0px -5px 30px 0px rgba(50, 50, 50, 0.32);
-    -moz-box-shadow:    0px -5px 30px 0px rgba(50, 50, 50, 0.32);
-    box-shadow:         0px -5px 30px 0px rgba(50, 50, 50, 0.32);
-}
-
-.noverflow {
     overflow: hidden;
 }
 
