@@ -1,8 +1,16 @@
 var hoveringOverLink = false;
 
 var hoverBox = {
+
+    classes: {
+        box: '.hoverpediabox',
+        noOverflowDiv: '.hoverpediabox_noverflow',
+        loadingImg: '.hoverpediabox_loading'
+    },
+
     startHTML: '<div class="hoverpediabox arrow_box">' +
-                    '<div class="noverflow">' +
+                    '<div class="hoverpediabox_noverflow">' +
+                        '<img class="hoverpediabox_loading" alt="Loading Wiki...">'+
                         '<h2></h2>' +
                         '<p>',
 
@@ -10,14 +18,28 @@ var hoverBox = {
                     '</div>' +
                 '</div>',
 
+
     html: this.startHTML + this.endHTML,
 
     setTitle: function(title) {
-        $('.hoverpediabox > .noverflow > h2').text(title);
+        var h2 = $(this.classes.box + ' > ' + this.classes.noOverflowDiv + ' > h2');
+        h2.text(title);
+        h2.show();
     },
 
     setHTML: function(html) {
-        $('.hoverpediabox > .noverflow > p').html(html);
+        $(this.classes.box + ' > ' + this.classes.noOverflowDiv + ' > p').html(html);
+    },
+
+    setLoading: function() {
+        var img = $(this.classes.loadingImg);
+        var src = chrome.extension.getURL('/loading.gif');
+        img.attr('src', src);
+        img.show();
+    },
+
+    unsetLoading: function() {
+        $(this.classes.loadingImg).hide();
     },
 
     appendBoxToBody: function () {
@@ -28,7 +50,7 @@ var hoverBox = {
 
     initialiseHoverBoxElement: function() {
         this.appendBoxToBody();
-        this.element = $('.hoverpediabox');
+        this.element = $(this.classes.box);
     },
 
     element: null,
@@ -78,7 +100,6 @@ function getTitleAndParagraph(data, charLimit) {
 function fetchWiki(pageTitle, event) {
 
     var charLimit = 400;
-
     $.get(pageTitle,
         function(data) {
             var result = getTitleAndParagraph(data, charLimit);
@@ -93,7 +114,7 @@ function fetchWiki(pageTitle, event) {
 var mouseOverWikiLink = function($this) {
     var href = $this.attr('href');
 
-    if (href.match(/wiki/) !== null) {
+    if (href.match(/\/wiki\//) !== null) {
         hoveringOverLink = true;
         fetchWiki(href, $this);
     }
@@ -111,7 +132,6 @@ $( function() {
 
     a.hoverIntent(
         function() {
-            a.css('position', 'relative');
             mouseOverWikiLink($(this));
         },
         function() {

@@ -11,12 +11,20 @@
     display:none;
 }
 
-.noverflow {
+.hoverpediabox_noverflow {
     min-width: 100px;
     min-height: 50px;
     max-height: 350px;
     max-width: 500px;
     overflow: hidden;
+}
+
+.hoverpediabox_noverflow h2 {
+    display: none;
+}
+
+.hoverpediabox_loading {
+    display: none;
 }
 
 .arrow_box {
