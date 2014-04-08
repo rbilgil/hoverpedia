@@ -3,6 +3,7 @@ var hoveringOverLink = false;
 var hoverBox = {
     startHTML: '<div class="hoverpediabox arrow_box">' +
                     '<div class="noverflow">' +
+                        '<h2></h2>' +
                         '<p>',
 
     endHTML:            '</p>' +
@@ -10,6 +11,10 @@ var hoverBox = {
                 '</div>',
 
     html: this.startHTML + this.endHTML,
+
+    setTitle: function(title) {
+        $('.hoverpediabox > .noverflow > h2').text(title);
+    },
 
     setHTML: function(html) {
         $('.hoverpediabox > .noverflow > p').html(html);
@@ -30,24 +35,25 @@ var hoverBox = {
 
     setPosition: function(x, y) {
 
-        var boxWidth = hoverBox.element.width();
-        var boxHeight = hoverBox.element.height();
+        var boxWidth = hoverBox.element.outerWidth();
+        var boxHeight = hoverBox.element.outerHeight();
 
         this.element.css(
             {
-                top: y - boxHeight - 45,
+                top: y - boxHeight - 30,
                 left: x - boxWidth / 2
             }
         );
     }
 };
 
-function getSlicedHTMLFromWikiPage(data, charLimit) {
+function getTitleAndParagraph(data, charLimit) {
 
     var el = $('<div></div>'); //create dummy element
     el.html(data);
 
     var firstPTag = $('#mw-content-text > p', el).first();
+    var title = $('#firstHeading', el).text();
 
     var firstParagraph = {
         html: firstPTag.html(),
@@ -63,7 +69,10 @@ function getSlicedHTMLFromWikiPage(data, charLimit) {
 
     var sliceLimit = getSliceLimitInHTMLFormUsingTextForm();
 
-    return firstParagraph.html.slice(0, sliceLimit);
+    return {
+        title: title,
+        paragraph: firstParagraph.html.slice(0, sliceLimit)
+    };
 }
 
 function fetchWiki(pageTitle, event) {
@@ -72,8 +81,10 @@ function fetchWiki(pageTitle, event) {
 
     $.get(pageTitle,
         function(data) {
-            var slicedHTML = getSlicedHTMLFromWikiPage(data, charLimit);
-            hoverBox.setHTML(slicedHTML + "...");
+            var result = getTitleAndParagraph(data, charLimit);
+
+            hoverBox.setTitle(result.title);
+            hoverBox.setHTML(result.paragraph + "...");
             hoverBox.setPosition(event.pageX, event.pageY);
         }
     );
