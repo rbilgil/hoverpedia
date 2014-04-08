@@ -59,11 +59,17 @@ var hoverBox = {
 
         var boxWidth = hoverBox.element.outerWidth();
         var boxHeight = hoverBox.element.outerHeight();
+        var top = y - boxHeight - 30;
+        var left = x - boxWidth / 2;
+
+        if (left < 0) {
+            left = 0;
+        }
 
         this.element.css(
             {
-                top: y - boxHeight - 30,
-                left: x - boxWidth / 2
+                top: top,
+                left: left
             }
         );
     }
