@@ -7,16 +7,20 @@ With this Chrome extension, hover over any Wikipedia link to read the first few 
 [Click here to install latest stable build for Chrome](https://chrome.google.com/webstore/detail/hoverpedia/pajemgajnfpngnbehkegefogdhddhemh)
 
 ###Changelog
-**v1.0 Initial release:**
+####v1.3:
+    - All wikipedia links now have an outline on hover
+    - Links to wikipedia from other websites all have an outline
 
-- Supports hovering over any link within Wikipedia to see preview of the link
+####v1.2:
+    - Hover popup now appears in different positions if available screen-space dictates as such
+    - Fixed some paragraphs not displaying fully
+    - Fixed some cities only showing "Coordinates:" instead of the first paragraph.
 
-**v1.1:**
-
-- Improved visuals
-- Many under-the-hood changes to improve the consistency of how the popup displays
-- Displays the popup from any site that links to Wikipedia!
-- Updated to have logo in extension settings
+####v1.1:
+    - Improved visuals
+    - Many under-the-hood changes to improve the consistency of how the popup displays
+    - Displays the popup from any site that links to Wikipedia!
+    - Updated to have logo in extension settings
 
 ###License
 
