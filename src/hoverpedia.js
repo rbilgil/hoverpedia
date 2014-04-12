@@ -197,29 +197,33 @@ function getTitleAndParagraph(data, charLimit) {
 /**
  * Creates an AJAX request to Wikipedia to fetch requested page title
  * @param pageTitle
- * @param event The hover event, required to set box position to mouse position
  */
-function fetchWiki(pageTitle, event) {
+function fetchWiki(pageTitle) {
 
     var charLimit = 400;
     $.get(pageTitle,
         function(data) {
             var result = getTitleAndParagraph(data, charLimit);
-            hoverBox.setHTML(result.paragraph + "...");
+            hoverBox.setHTML(result.paragraph);
             hoveringOverLink = true;
         }
     );
 }
 
+function isWikiLink(href) {
+    return href === undefined ? false :
+        href.match(/(wikipedia\.org\/wiki\/|wikipedia\.org%2Fwiki)/) !== null
+        || (window.location.href.match(/wikipedia/) && href.match(/\/wiki\//) !== null);
+}
 /**
  * Controls mousing over a wiki link
- * @param $this
+ * @param anchor
  */
-var mouseOverWikiLink = function($this) {
-    var href = $this.attr('href');
+var mouseOverWikiLink = function(anchor) {
+    var href = anchor.attr('href');
 
-    if (href.match(/(\/wiki\/|%2Fwiki)/) !== null) {
-        fetchWiki(href, $this);
+    if (isWikiLink(href)) {
+        fetchWiki(href);
     }
 
 };
@@ -227,15 +231,35 @@ var mouseOverWikiLink = function($this) {
 /**
  * Controls mousing off a wiki link
  */
-var mouseLeaveWikiLink = function() {
+var mouseLeaveWikiLink = function(anchor) {
     hoveringOverLink = false;
+    removeAnchorOutlines(anchor);
 };
 
+function outlineWikiAnchors(anchor) {
+    var href = anchor.attr('href');
+    if (isWikiLink(href)) {
+        anchor.css('outline', '2px dashed #ff6406');
+    }
+}
+
+function removeAnchorOutlines(anchor) {
+    anchor.css('outline', 'none');
+}
 /**
  * When document is ready
  */
 $( function() {
     var a = $('a');
+
+    a.each(function(index) {
+        var anchor = $(this);
+        var href = anchor.attr('href');
+
+        if (window.location.href.match(/wikipedia\.org/) === null) {
+            outlineWikiAnchors(anchor);
+        }
+    });
 
     hoverBox.initialiseHoverBoxElement();
 
@@ -248,14 +272,18 @@ $( function() {
             mouseOverWikiLink($(this));
         },
         function() {
-            mouseLeaveWikiLink();
+            mouseLeaveWikiLink($(this));
         }
     );
 
-    //Just incase hoverIntent doesn't capture the mouse leaving
-    a.mouseleave(
+    //To put an outline on the link as soon as mouse is over it, to indicate it's a "hoverpedia" link
+    a.hover(
         function() {
-            mouseLeaveWikiLink();
+            var $this = $(this);
+            outlineWikiAnchors($this);
+        },
+        function() {
+            mouseLeaveWikiLink($(this));
         }
     );
 
