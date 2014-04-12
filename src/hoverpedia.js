@@ -8,29 +8,38 @@ var hoverBox = {
         loadingImg: '.hoverpediabox_loading'
     },
 
-    startHTML: '<div class="hoverpediabox arrow_box">' +
+    ids: {
+        top: '#hoverpedia_top',
+        left: '#hoverpedia_left',
+        right: '#hoverpedia_right',
+        bottom: '#hoverpedia_bottom'
+    },
+
+    startHTML: function(id) {
+        return '<div class="hoverpediabox arrow_box" id="' + id + '">' +
                     '<div class="hoverpediabox_noverflow">' +
-                        '<img class="hoverpediabox_loading" alt="Loading Wiki...">'+
-                        '<h2></h2>' +
-                        '<p>',
+                    '<img class="hoverpediabox_loading" alt="Loading Wiki...">'+
+                    '<h2></h2>' +
+                    '<p>';
+    },
 
     endHTML:            '</p>' +
                     '</div>' +
                 '</div>',
 
-
-    html: this.startHTML + this.endHTML,
-
-    /**
-     * Sets the title of the popup
-     * Currently unused
-     * TODO: Make this an option
-     * @param title
-     */
-    setTitle: function(title) {
-        var h2 = $(this.classes.box + ' > ' + this.classes.noOverflowDiv + ' > h2');
-        h2.text(title);
-        h2.show();
+    html: {
+        top: function() {
+            return hoverBox.startHTML('hoverpedia_top') + hoverBox.endHTML;
+        },
+        left: function() {
+            return hoverBox.startHTML('hoverpedia_left') + hoverBox.endHTML;
+        },
+        right: function() {
+            return hoverBox.startHTML('hoverpedia_right') + hoverBox.endHTML;
+        },
+        bottom: function() {
+            return hoverBox.startHTML('hoverpedia_bottom') + hoverBox.endHTML;
+        },
     },
 
     /**
@@ -42,29 +51,14 @@ var hoverBox = {
     },
 
     /**
-     * Displays the loading gif
-     * Currently unusued
-     */
-    showLoading: function() {
-        var img = $(this.classes.loadingImg);
-        var src = chrome.extension.getURL('/loading.gif');
-        img.attr('src', src);
-        img.show();
-    },
-
-    /**
-     * Hides the loading gif
-     */
-    hideLoading: function() {
-        $(this.classes.loadingImg).hide();
-    },
-
-    /**
      * Injects the HTML necessary to display the popup box
      */
     appendBoxToBody: function () {
-        if (this.element === null) {
-            $('body').append(this.startHTML + this.endHTML);
+        if (this.element_Top === null) {
+            $('body').append(this.html.top())
+                     .append(this.html.left())
+                     .append(this.html.right())
+                     .append(this.html.bottom());
         }
     },
 
@@ -73,10 +67,44 @@ var hoverBox = {
      */
     initialiseHoverBoxElement: function() {
         this.appendBoxToBody();
-        this.element = $(this.classes.box);
+        this.element_Top = $(this.ids.top);
+        this.element_Left = $(this.ids.left);
+        this.element_Right = $(this.ids.right);
+        this.element_Bottom = $(this.ids.bottom);
     },
 
-    element: null,
+    element_Top: null,
+    element_Right: null,
+    element_Left: null,
+    element_Bottom: null,
+
+    showElement: function(x, y) {
+        var boxWidth = hoverBox.element_Top.outerWidth();
+        var boxHeight = hoverBox.element_Top.outerHeight();
+        var wind = $(window);
+
+
+        if (x - boxWidth / 2 < 0) {
+            hoverBox.hideElements();
+            hoverBox.element_Right.show();
+        } else if (x + boxWidth / 2 > wind.width()) {
+            hoverBox.hideElements();
+            hoverBox.element_Left.show();
+        } else if (y - boxHeight - 30 < wind.scrollTop()) {
+            hoverBox.hideElements();
+            hoverBox.element_Bottom.show();
+        } else {
+            hoverBox.hideElements();
+            hoverBox.element_Top.show();
+        }
+    },
+
+    hideElements: function() {
+        hoverBox.element_Right.hide();
+        hoverBox.element_Left.hide();
+        hoverBox.element_Top.hide();
+        hoverBox.element_Bottom.hide();
+    },
 
     /**
      * Sets the x,y position of the popup box
@@ -85,19 +113,48 @@ var hoverBox = {
      */
     setPosition: function(x, y) {
 
-        var boxWidth = hoverBox.element.outerWidth();
-        var boxHeight = hoverBox.element.outerHeight();
-        var top = y - boxHeight - 30;
-        var left = x - boxWidth / 2;
+        var boxWidth = hoverBox.element_Top.outerWidth();
+        var boxHeight = hoverBox.element_Top.outerHeight();
 
-        if (left < 0) {
-            left = 0;
-        }
+        var top = {
+            box: y - boxHeight - 30,
+            bottomBox: y + 30,
+            leftBox: y - boxHeight / 2,
+            rightBox: y - boxHeight / 2
+        };
 
-        this.element.css(
+        var left = {
+            box: x - boxWidth / 2,
+            bottomBox: x - boxWidth / 2,
+            leftBox: x - boxWidth - 30,
+            rightBox: x + 30
+        };
+
+        this.element_Top.css(
             {
-                top: top,
-                left: left
+                top: top.box,
+                left: left.box
+            }
+        );
+
+        this.element_Right.css(
+            {
+                top: top.rightBox,
+                left: left.rightBox
+            }
+        );
+
+        this.element_Left.css(
+            {
+                top: top.leftBox,
+                left: left.leftBox
+            }
+        );
+
+        this.element_Bottom.css(
+            {
+                top: top.bottomBox,
+                left: left.bottomBox
             }
         );
     }
@@ -114,26 +171,26 @@ function getTitleAndParagraph(data, charLimit) {
     var el = $('<div></div>'); //create dummy element
     el.html(data);
 
-    var firstPTag = $('#mw-content-text > p', el).first();
-    var title = $('#firstHeading', el).text();
+    var P = $('#mw-content-text > p', el).first();
 
-    var firstParagraph = {
-        html: firstPTag.html(),
-        text: firstPTag.text()
-    };
-
-    function getSliceLimitInHTMLFormUsingTextForm() {
-        var trimmedSentence = firstParagraph.text.slice(0, charLimit);
-        var lastTenChars = trimmedSentence.slice(trimmedSentence.length - 10, trimmedSentence.length);
-
-        return firstParagraph.html.indexOf(lastTenChars);
+    if (P.text().match('Coordinates') !== null) {
+        P = $('#mw-content-text > p', el).eq(1);
     }
 
-    var sliceLimit = getSliceLimitInHTMLFormUsingTextForm();
+    var title = $('#firstHeading', el).text();
+
+    var paragraph = {
+        html: P.html(),
+        text: P.text()
+    };
+
+    if (paragraph.html == null || paragraph.html == undefined || paragraph.html == "") {
+        paragraph.html = "Can't find any content to fetch on this page";
+    }
 
     return {
         title: title,
-        paragraph: firstParagraph.html.slice(0, sliceLimit)
+        paragraph: paragraph.html
     };
 }
 
@@ -195,6 +252,13 @@ $( function() {
         }
     );
 
+    //Just incase hoverIntent doesn't capture the mouse leaving
+    a.mouseleave(
+        function() {
+            mouseLeaveWikiLink();
+        }
+    );
+
 
     /**
      * Sets the popup box to the mouse cursor position every time mouse is moved
@@ -203,9 +267,10 @@ $( function() {
         hoverBox.setPosition(e.pageX, e.pageY);
 
         if (hoveringOverLink) {
-            hoverBox.element.show();
+            hoverBox.showElement(e.pageX, e.pageY);
+
         } else {
-            hoverBox.element.hide();
+            hoverBox.hideElements();
         }
     });
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aadeeb72-5e4c-4c71-8738-898aee808f72" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/hoverpedia.css" afterPath="$PROJECT_DIR$/css/hoverpedia.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hoverpedia.js" afterPath="$PROJECT_DIR$/src/hoverpedia.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,7 +30,7 @@
       <file leaf-file-name="manifest.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="-15.862069" vertical-offset="0" max-vertical-offset="720">
+            <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -38,7 +39,7 @@
       <file leaf-file-name="hoverpedia.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="4.5676274" vertical-offset="0" max-vertical-offset="4340">
+            <state line="202" column="0" selection-start="5433" selection-end="5433" vertical-scroll-proportion="0.75388026" vertical-offset="3360" max-vertical-offset="5640">
               <folding />
             </state>
           </provider>
@@ -56,7 +57,7 @@
       <file leaf-file-name="hoverpedia.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/hoverpedia.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1240">
+            <state line="21" column="29" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
               <folding />
             </state>
           </provider>
@@ -82,8 +83,8 @@
         <option value="$PROJECT_DIR$/hoverpedia.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/manifest.json" />
-        <option value="$PROJECT_DIR$/css/hoverpedia.css" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/css/hoverpedia.css" />
         <option value="$PROJECT_DIR$/src/hoverpedia.js" />
       </list>
     </option>
@@ -207,15 +208,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2518637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14589989" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -223,7 +225,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -247,6 +248,62 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="0.0" vertical-offset="4120" max-vertical-offset="4340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/hoverpedia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="0.0" vertical-offset="4120" max-vertical-offset="4340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/hoverpedia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="9" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="720">
@@ -287,14 +344,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="-15.862069" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/hoverpedia.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1240">
+        <state line="23" column="36" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
@@ -306,9 +356,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/hoverpedia.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="29" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hoverpedia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="16" selection-start="5009" selection-end="5009" vertical-scroll-proportion="4.5676274" vertical-offset="0" max-vertical-offset="4340">
+        <state line="202" column="0" selection-start="5433" selection-end="5433" vertical-scroll-proportion="0.75388026" vertical-offset="3360" max-vertical-offset="5640">
           <folding />
         </state>
       </provider>
