@@ -12,10 +12,10 @@
 }
 
 .hoverpediabox_noverflow {
-    min-width: 100px;
+
     min-height: 50px;
-    max-height: 350px;
-    max-width: 500px;
+    max-height: 450px;
+    width: 500px;
     overflow: hidden;
 }
 
@@ -33,8 +33,6 @@
 }
 
 .arrow_box:after, .arrow_box:before {
-    top: 100%;
-    left: 50%;
     border: solid transparent;
     content: " ";
     height: 0;
@@ -45,13 +43,76 @@
 
 .arrow_box:after {
     border-color: rgba(213, 26, 26, 0);
-    border-top-color: #fff;
     border-width: 15px;
-    margin-left: -15px;
+    margin:0;
 }
+
 .arrow_box:before {
     border-color: rgba(245, 238, 238, 0);
-    border-top-color: #aaa;
     border-width: 16px;
+    margin: 0;
+}
+
+#hoverpedia_top.arrow_box:after, #hoverpedia_top.arrow_box:before {
+    top: 100%;
+    left: 50%;
+}
+
+#hoverpedia_top.arrow_box:after {
+    border-top-color: #fff;
+    margin-left: -15px;
+}
+
+#hoverpedia_top.arrow_box:before {
+    border-top-color: #aaa;
     margin-left: -16px;
+}
+
+#hoverpedia_right.arrow_box:after {
+    border-right-color: #fff;
+    margin-top: -15px;
+    margin-left: -30px;
+}
+
+#hoverpedia_right.arrow_box:before {
+    border-right-color: #aaa;
+    margin-top: -16px;
+    margin-left: -32px;
+}
+
+#hoverpedia_left.arrow_box:after {
+    border-left-color: #fff;
+    margin-top: -15px;
+}
+
+#hoverpedia_left.arrow_box:before {
+    border-left-color: #aaa;
+    margin-top: -16px;
+}
+
+#hoverpedia_bottom.arrow_box:after {
+    border-bottom-color: #fff;
+    margin-top: -30px;
+    margin-left: -15px;
+}
+
+#hoverpedia_bottom.arrow_box:before {
+    border-bottom-color: #aaa;
+    margin-top: -32px;
+    margin-left: -16px;
+}
+
+#hoverpedia_left.arrow_box:after, #hoverpedia_left.arrow_box:before {
+    top: 50%;
+    left: 100%;
+}
+
+#hoverpedia_right.arrow_box:after, #hoverpedia_right.arrow_box:before {
+    top: 50%;
+    left: 0%;
+}
+
+#hoverpedia_bottom.arrow_box:after, #hoverpedia_bottom.arrow_box:before {
+    top: 0%;
+    left: 50%;
 }
